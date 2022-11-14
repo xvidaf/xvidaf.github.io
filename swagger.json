@@ -1,0 +1,563 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Agilist",
+    "description": "Agilist description TODO\n\nSome useful links:\n- [The team website](https://github.com/swagger-api/swagger-petstore)",
+    "version": "0.1.0"
+  },
+  "tags": [
+    {
+      "name": "users",
+      "description": "Everything related to users"
+    },
+    {
+      "name": "boards",
+      "description": "Everything related to boards"
+    },
+    {
+      "name": "projects",
+      "description": "Everything related to projects"
+    },
+    {
+      "name": "tickets",
+      "description": "Everything related to tickets"
+    }
+  ],
+  "paths": {
+    "/user/register": {
+      "post": {
+        "tags": [
+          "users"
+        ],
+        "summary": "TODO ONLY A CONCEPT",
+        "description": "Everything about Boards",
+        "operationId": "registerUser",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful registration"
+          },
+          "400": {
+            "description": "Invalid attributes supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/badUser"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users": {
+      "get": {
+        "tags": [
+          "users"
+        ],
+        "summary": "Fetch all users",
+        "description": "Fetch all users",
+        "operationId": "getUsers",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AllUsers"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/projects": {
+      "get": {
+        "tags": [
+          "projects"
+        ],
+        "summary": "Fetch all projects",
+        "description": "Fetch all projects",
+        "operationId": "getProjects",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AllProjects"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/boards": {
+      "get": {
+        "tags": [
+          "boards"
+        ],
+        "summary": "Fetch all boards",
+        "description": "Fetch all boards",
+        "operationId": "getBoards",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AllBoards"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tickets": {
+      "get": {
+        "tags": [
+          "tickets"
+        ],
+        "summary": "Fetch all tickets",
+        "description": "Fetch all tickets",
+        "operationId": "getTickets",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AllTickets"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/login": {
+      "post": {
+        "tags": [
+          "users"
+        ],
+        "summary": "TODO ONLY A CONCEPT",
+        "description": "Login a user to the app",
+        "operationId": "loginUser",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/loginUser"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful login"
+          },
+          "400": {
+            "description": "Invalid login"
+          }
+        }
+      }
+    },
+    "/board/manage": {
+      "post": {
+        "tags": [
+          "boards"
+        ],
+        "summary": "TODO ONLY A CONCEPT",
+        "description": "Create a new board",
+        "operationId": "createBoard",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/board"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful creation"
+          },
+          "400": {
+            "description": "Invalid attributes supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/badBoard"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "boards"
+        ],
+        "summary": "TODO ONLY A CONCEPT",
+        "description": "Edit an existing board",
+        "operationId": "editBoard",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/editBoard"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful update"
+          },
+          "404": {
+            "description": "Board not found"
+          }
+        }
+      }
+    },
+    "/board/manage/{boardId}": {
+      "get": {
+        "tags": [
+          "boards"
+        ],
+        "summary": "TODO ONLY A CONCEPT",
+        "description": "Get an existing board",
+        "operationId": "getBoard",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "boardId",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "Numeric ID of the board to get"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful get"
+          },
+          "404": {
+            "description": "Board not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "boards"
+        ],
+        "summary": "TODO ONLY A CONCEPT",
+        "description": "Delete an existing board",
+        "operationId": "deleteBoard",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "boardId",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "Numeric ID of the board to delete"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful delete"
+          },
+          "404": {
+            "description": "Board not found"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "User": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "example": "635a4995e536e356577c3395"
+          },
+          "fullName": {
+            "type": "string",
+            "example": "Josko Mrkva"
+          },
+          "userName": {
+            "type": "string",
+            "format": "email",
+            "example": "joskomrkva"
+          },
+          "password": {
+            "writeOnly": true,
+            "type": "string",
+            "format": "password",
+            "example": "secret"
+          },
+          "email": {
+            "type": "string",
+            "example": "email@host.com"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2022-10-27T09:04:21.916Z"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2022-10-27T09:04:21.916Z"
+          }
+        }
+      },
+      "AllUsers": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/User"
+        }
+      },
+      "Project": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "example": "635a4995e536e356577c3395"
+          },
+          "name": {
+            "type": "string",
+            "example": "Project name"
+          },
+          "owner": {
+            "$ref": "#/components/schemas/User"
+          },
+          "users": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/User"
+            }
+          },
+          "boards": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Board"
+            }
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2022-10-27T09:04:21.916Z"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2022-10-27T09:04:21.916Z"
+          }
+        }
+      },
+      "AllProjects": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Project"
+        }
+      },
+      "Board": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "example": "635a4995e536e356577c3395"
+          },
+          "name": {
+            "type": "string",
+            "example": "Board name"
+          },
+          "users": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/User"
+            }
+          },
+          "tickets": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/User"
+            }
+          },
+          "__v": {
+            "type": "number",
+            "example": 123,
+            "writeOnly": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2022-10-27T09:04:21.916Z"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2022-10-27T09:04:21.916Z"
+          }
+        }
+      },
+      "AllBoards": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Board"
+        }
+      },
+      "Ticket": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "example": "635a4995e536e356577c3395"
+          },
+          "task": {
+            "type": "string",
+            "example": "Task name"
+          },
+          "priority": {
+            "type": "number",
+            "example": 1
+          },
+          "column": {
+            "type": "number",
+            "example": 5
+          },
+          "createdBy": {
+            "$ref": "#/components/schemas/User"
+          },
+          "assignedTo": {
+            "$ref": "#/components/schemas/User"
+          },
+          "__v": {
+            "type": "number",
+            "example": 123,
+            "writeOnly": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2022-10-27T09:04:21.916Z"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2022-10-27T09:04:21.916Z"
+          }
+        }
+      },
+      "AllTickets": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Ticket"
+        }
+      },
+      "badUser": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "example": "Missing"
+          },
+          "email": {
+            "type": "string",
+            "example": "In use"
+          },
+          "pwhash": {
+            "type": "string",
+            "example": "Missing"
+          }
+        }
+      },
+      "loginUser": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "example": "username"
+          },
+          "pwhash": {
+            "type": "string",
+            "example": "hashash"
+          }
+        }
+      },
+      "board": {
+        "type": "object",
+        "properties": {
+          "boardName": {
+            "type": "string",
+            "example": "boardName"
+          },
+          "owner": {
+            "type": "string",
+            "example": 123
+          },
+          "variable": {
+            "type": "string",
+            "example": "TODO MORE ATTRIBUTES"
+          }
+        }
+      },
+      "badBoard": {
+        "type": "object",
+        "properties": {
+          "boardName": {
+            "type": "string",
+            "example": "Missing"
+          },
+          "owner": {
+            "type": "string",
+            "example": "Not exist"
+          },
+          "variable": {
+            "type": "string",
+            "example": "TODO MORE ATTRIBUTES"
+          }
+        }
+      },
+      "editBoard": {
+        "type": "object",
+        "properties": {
+          "boardId": {
+            "type": "integer",
+            "example": 123
+          },
+          "boardName": {
+            "type": "string",
+            "example": "newName"
+          },
+          "variable": {
+            "type": "string",
+            "example": "TODO MORE ATTRIBUTES"
+          }
+        }
+      }
+    }
+  }
+}
